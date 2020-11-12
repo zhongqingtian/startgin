@@ -54,6 +54,14 @@ func Get(c *gin.Context) {
 // demoUser: demo.DemoUser{User:"test", Pass:"123456"}
 // formData.user: "test"
 // formData.pass: "123456"
+
+// @Summary 账号密码登陆接口
+// @version 1.0
+// @Accept application/x-json-stream
+// @Param user body DemoUser true "用户账号密码"
+// @Success 200 "ok" 成功后返回值
+// @Failure    500 "fail" 成功后返回值
+// @Router /api/v1/demo/simple/post [post]
 func Post(c *gin.Context) {
 	var demoUser DemoUser
 	c.ShouldBind(&demoUser)
@@ -62,7 +70,6 @@ url: %#v
 demoUser: %#v
 formData.user: %#v
 formData.pass: %#v
-
 `
 	str = fmt.Sprintf(
 		str,

@@ -1,0 +1,42 @@
+definitions:
+  demo.DemoUser:
+    properties:
+      pass:
+        type: string
+      user:
+        type: string
+    required:
+    - pass
+    - user
+    type: object
+host: localhost:8080
+info:
+  contact:
+    email: youngxhui@g mail.com
+    name: youngxhu
+    url: https://youngxhui.top
+  description: Gin swagger 示例项目
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+  title: Gin swagger
+  version: "1.0"
+paths:
+  /api/v1/demo/simple/post:
+    post:
+      consumes:
+      - application/x-json-stream
+      parameters:
+      - description: 用户账号密码
+        in: body
+        name: user
+        required: true
+        schema:
+          $ref: '#/definitions/demo.DemoUser'
+      responses:
+        "200":
+          description: ok
+        "500":
+          description: fail
+      summary: 账号密码登陆接口
+swagger: "2.0"
